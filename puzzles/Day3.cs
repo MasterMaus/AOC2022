@@ -11,8 +11,6 @@ public class Day3
 
         Console.WriteLine(Part1(input));
         Console.WriteLine(Part2(input));
-
-
     }
 
     private static int Part2(List<string> input)
