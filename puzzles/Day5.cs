@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace AOC2022.puzzles;
 
-using AOC2022.util;
+using util;
 
 public class Day5
 {
@@ -43,18 +43,47 @@ public class Day5
             line = line.Replace(" to ", ",");
             instructions.Add(Array.ConvertAll(line.Split(','), s => int.Parse(s)));
         }
+        
+        // Done parsing input into stacks and instructions
+        
+        // Part1 and Part2 may not run at the same time, since the original dataset is manipulated in the method
+        // TODO make sure the original dataset stays unchanged outside of the method
+        //Part1(containers, instructions);
+        Part2(containers, instructions);
+    }
 
-        
-        // Part 1
-        // foreach (var instruction in instructions)
-        // {
-        //     for (var i = 0; i < instruction[0]; i++)
-        //     {
-        //         containers[instruction[2]-1].Push(containers[instruction[1]-1].Pop());
-        //     }
-        // }
-        
-        // Part 2
+    private static void PrintStackList<T>(List<Stack<T>> list)
+    {
+        foreach (var stack in list)
+        {
+            Console.Write("stack: ");
+            foreach (var crate in stack)
+            {
+                Console.Write(crate);
+            }
+            Console.WriteLine("");
+        }
+    }
+
+    private static void Part1(List<Stack<char>> containers, List<int[]> instructions)
+    {
+        foreach (var instruction in instructions)
+        {
+            for (var i = 0; i < instruction[0]; i++)
+            {
+                containers[instruction[2]-1].Push(containers[instruction[1]-1].Pop());
+            }
+        }
+        Console.Write("Part1: ");
+        foreach (var container in containers)
+        {
+            Console.Write(container.Peek());
+        }
+        Console.WriteLine("");
+    }
+    
+    private static void Part2(List<Stack<char>> containers, List<int[]> instructions)
+    {
         foreach (var instruction in instructions)
         {
             var temp = new Stack<char>();
@@ -68,19 +97,12 @@ public class Day5
                 containers[instruction[2]-1].Push(container);
             }
         }
-        PrintStackList(containers);
-    }
 
-    private static void PrintStackList<T>(List<Stack<T>> list)
-    {
-        foreach (var stack in list)
+        Console.Write("Part2: ");
+        foreach (var container in containers)
         {
-            Console.Write("stack: ");
-            foreach (var container in stack)
-            {
-                Console.Write(container);
-            }
-            Console.WriteLine("");
+            Console.Write(container.Peek());
         }
+        Console.WriteLine("");
     }
 }
