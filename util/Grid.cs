@@ -117,8 +117,6 @@ public class Grid
     public int findMax()
     {
         var res = getPoint(0,0);
-        var c = 0;
-        var d = 0;
 
         for (var a = 0; a < sizeX(); a++)
         {
