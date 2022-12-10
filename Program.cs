@@ -10,10 +10,8 @@ Console.WriteLine("Hello, World!");
 // Day6.Execute();
 // Day7.Execute();
 // Day8.Execute();
-Day9.Execute();
-//
-// Grid test = new Grid(3, 3);
-// Console.WriteLine(test.sizeX() + "\n" + test.sizeY() + "\n" + test.sizeZ() + "\n");
-// Console.WriteLine(test.getPoint(1,1));
+// Day9.Execute();
+Day10.Execute();
+
 
 

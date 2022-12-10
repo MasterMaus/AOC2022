@@ -132,6 +132,32 @@ public class Grid
 
         return res;
     }
+
+    public string toImage(int val)
+    {
+        string res = "";
+        for (var y = sizeY() - 1; y >= 0; y--)
+        {
+            for (int x = 0; x < sizeX(); x++)
+            {
+                if (grid[x, y] == val)
+                {
+                    res = res + "██";
+                }
+                else if (grid[x,y] == 0)
+                {
+                    res = res + "░░";
+                }
+                else
+                {
+                    res = res + "??";
+                }
+            }
+            res = res + "\n";
+        }
+
+        return res;
+    }
     
 
 }
